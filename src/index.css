@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @apply antialiased;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-[#FFF8E1] text-[#5D4037] overflow-x-hidden;
+    overscroll-behavior-y: none;
+  }
+
+  /* スクロールバーのカスタマイズ */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#FFE082] rounded-full hover:bg-[#FFD54F] transition-colors;
+  }
+
+  /* モバイルでのタップハイライトを無効化 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 選択を無効化 */
+  .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* モバイルデバイスでのスクロールを滑らかに */
+@supports (-webkit-overflow-scrolling: touch) {
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
